@@ -1,0 +1,5 @@
+{
+  "creativeblueprint.selection.dragging": "Selecting...",
+  "creativeblueprint.selection.released": "Selection released after %s ticks",
+  "creativeblueprint.selection.cancelled": "Selection cancelled"
+}

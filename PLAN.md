@@ -6,6 +6,7 @@ A client-side mod for fast, Factorio-style copy and paste in creative mode.
 
 1. **Ctrl + drag** (left mouse) in creative: draw a box. Corner 2 follows the crosshair with a
    long raycast (about 128 blocks). The vanilla block break is cancelled while Ctrl is held.
+   Right click (or Esc, without Ctrl: Ctrl+Esc is a Windows shortcut) cancels the drag.
 2. **Release**: the box is copied at once. A ghost of it sticks to the crosshair.
 3. **Click**: place a **blueprint** there. The ghost stays, so you can keep stamping.
 4. **R** rotates, **Esc** / right click drops the ghost.

@@ -23,19 +23,15 @@ repositories {
 }
 
 dependencies {
-    // Only the Fabric API modules we use, so each version doesn't download all of them
-    fun fapi(vararg modules: String) {
-        for (it in modules) modImplementation(fabricApi.module(it, sc.properties["deps.fabric_api"]))
-    }
-
     minecraft("com.mojang:minecraft:${sc.current.version}")
     // Mojang mappings on obfuscated versions; 26.1+ ships unobfuscated
     loomx.applyMojangMappings()
 
     // `mod{dependency type}` works on 26.1+ too: loom-back-compat converts them
     modImplementation("net.fabricmc:fabric-loader:${property("deps.fabric_loader")}")
-    // Fabric API took Mojang's "key mapping" name in 26.1
-    fapi("fabric-api-base", if (sc.current.parsed >= "26.1") "fabric-key-mapping-api-v1" else "fabric-key-binding-api-v1")
+    // All of Fabric API, like a real install: with only some modules the dev client can
+    // behave differently (missing language files, for one)
+    modImplementation("net.fabricmc.fabric-api:fabric-api:${property("deps.fabric_api")}")
 }
 
 loom {

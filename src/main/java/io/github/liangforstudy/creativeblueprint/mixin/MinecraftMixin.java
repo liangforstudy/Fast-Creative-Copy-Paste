@@ -1,17 +1,34 @@
 package io.github.liangforstudy.creativeblueprint.mixin;
 
-import io.github.liangforstudy.creativeblueprint.CreativeBlueprint;
+import io.github.liangforstudy.creativeblueprint.SelectionInput;
 import net.minecraft.client.Minecraft;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-/** Placeholder until the input mixins exist: proves mixins apply on every loader and version. */
+/** Routes the attack key to {@link SelectionInput} while Ctrl + left mouse is a selection drag. */
 @Mixin(Minecraft.class)
-public class MinecraftMixin {
-    @Inject(method = "<init>", at = @At("RETURN"))
-    private void creativeblueprint$onInit(CallbackInfo ci) {
-        CreativeBlueprint.LOGGER.info("Mixins applied");
+public abstract class MinecraftMixin {
+    @Inject(method = "startAttack", at = @At("HEAD"), cancellable = true)
+    private void creativeblueprint$startAttack(CallbackInfoReturnable<Boolean> cir) {
+        if (SelectionInput.onAttackPressed((Minecraft) (Object) this)) cir.setReturnValue(false);
+    }
+
+    @Inject(method = "continueAttack", at = @At("HEAD"), cancellable = true)
+    private void creativeblueprint$continueAttack(boolean leftClick, CallbackInfo ci) {
+        // With leftClick false vanilla only stops any block breaking, which should still happen
+        if (leftClick && SelectionInput.blocksHeldAttack((Minecraft) (Object) this)) ci.cancel();
+    }
+
+    @Inject(method = "startUseItem", at = @At("HEAD"), cancellable = true)
+    private void creativeblueprint$startUseItem(CallbackInfo ci) {
+        if (SelectionInput.onUsePressed((Minecraft) (Object) this)) ci.cancel();
+    }
+
+    @Inject(method = "tick", at = @At("TAIL"))
+    private void creativeblueprint$tick(CallbackInfo ci) {
+        SelectionInput.tick((Minecraft) (Object) this);
     }
 }
