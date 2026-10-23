@@ -9,7 +9,8 @@
   "icon": "assets/creativeblueprint/icon.png",
   "environment": "client",
   "entrypoints": {
-    "client": ["io.github.liangforstudy.creativeblueprint.loader.CreativeBlueprintFabric"]
+    "client": ["io.github.liangforstudy.creativeblueprint.loader.CreativeBlueprintFabric"],
+    "modmenu": ["io.github.liangforstudy.creativeblueprint.loader.ModMenuIntegration"]
   },
   "mixins": ["creativeblueprint.mixins.json"],
   "depends": {

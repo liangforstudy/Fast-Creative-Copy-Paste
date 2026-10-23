@@ -1,6 +1,8 @@
 package io.github.liangforstudy.creativeblueprint.mixin;
 
+import io.github.liangforstudy.creativeblueprint.Ghost;
 import io.github.liangforstudy.creativeblueprint.SelectionInput;
+import io.github.liangforstudy.creativeblueprint.Stamp;
 import net.minecraft.client.Minecraft;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -27,8 +29,15 @@ public abstract class MinecraftMixin {
         if (SelectionInput.onUsePressed((Minecraft) (Object) this)) ci.cancel();
     }
 
+    @Inject(method = "tick", at = @At("HEAD"))
+    private void creativeblueprint$beforeTick(CallbackInfo ci) {
+        Ghost.beforeTick((Minecraft) (Object) this);
+    }
+
     @Inject(method = "tick", at = @At("TAIL"))
     private void creativeblueprint$tick(CallbackInfo ci) {
         SelectionInput.tick((Minecraft) (Object) this);
+        Ghost.tick((Minecraft) (Object) this);
+        Stamp.tick((Minecraft) (Object) this);
     }
 }

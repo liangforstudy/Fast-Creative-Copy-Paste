@@ -5,6 +5,7 @@
   "client": [
     "ClientPacketListenerMixin",
     "DebugRendererMixin",
+    "KeyMappingMixin",
     "MinecraftMixin",
     "MouseHandlerMixin"
   ],

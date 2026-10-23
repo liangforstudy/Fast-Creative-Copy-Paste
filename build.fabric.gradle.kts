@@ -34,6 +34,13 @@ dependencies {
     modImplementation("net.fabricmc.fabric-api:fabric-api:${property("deps.fabric_api")}")
     // Dev client only, never shipped: MCPFabric lets Claude drive the game over MCP (see README)
     findProperty("deps.mcpfabric")?.let { modLocalRuntime("maven.modrinth:mcpfabric:$it") }
+    // Optional: Mod Menu's settings button (ModMenuIntegration). Compiled against, not shipped;
+    // also in the dev client to try the button
+    modCompileOnly("maven.modrinth:modmenu:${property("deps.modmenu")}")
+    modLocalRuntime("maven.modrinth:modmenu:${property("deps.modmenu")}")
+    // Dev client only: Ctrl-Z (undo/redo), to test alongside it; needs Vanilib
+    findProperty("deps.ctrlz")?.let { modLocalRuntime("maven.modrinth:kFgIgZ37:$it") }
+    findProperty("deps.vanilib")?.let { modLocalRuntime("maven.modrinth:TpZlEkF6:$it") }
 }
 
 loom {

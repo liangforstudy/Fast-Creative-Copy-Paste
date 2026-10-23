@@ -1,6 +1,5 @@
 package io.github.liangforstudy.creativeblueprint;
 
-import com.mojang.blaze3d.platform.InputConstants;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.network.chat.Component;
@@ -17,18 +16,17 @@ public final class Compat {
         *///?}
     }
 
-    /** Either Ctrl key, read straight from the keyboard so a key mapping on Ctrl (sprint) doesn't hide it. */
-    public static boolean isCtrlDown(Minecraft mc) {
-        if (DevTools.ctrlDown) return true;
-        //? if >=26.3 {
-        return InputConstants.isKeyDown(InputConstants.KEY_LCONTROL) || InputConstants.isKeyDown(InputConstants.KEY_RCONTROL);
-        //?} elif >=1.21.11 {
-        /*var window = mc.getWindow();
-        return InputConstants.isKeyDown(window, InputConstants.KEY_LCONTROL) || InputConstants.isKeyDown(window, InputConstants.KEY_RCONTROL);
-        *///?} else {
-        /*long window = mc.getWindow().getWindow();
-        return InputConstants.isKeyDown(window, InputConstants.KEY_LCONTROL) || InputConstants.isKeyDown(window, InputConstants.KEY_RCONTROL);
+    public static void setScreen(Minecraft mc, net.minecraft.client.gui.screens.Screen screen) {
+        //? if >=26.2 {
+        mc.gui.setScreen(screen);
+        //?} else {
+        /*mc.setScreen(screen);
         *///?}
+    }
+
+    /** The Select key (Left Ctrl by default), or the dev client's virtual Ctrl. */
+    public static boolean isSelectDown(Minecraft mc) {
+        return Keys.SELECT.isDown() || DevTools.ctrlDown;
     }
 
     /** The attack key (left mouse by default), or the dev client's virtual one. */
