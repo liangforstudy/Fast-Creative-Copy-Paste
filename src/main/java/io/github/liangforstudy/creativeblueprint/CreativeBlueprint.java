@@ -13,6 +13,6 @@ public final class CreativeBlueprint {
     private CreativeBlueprint() {}
 
     public static void init() {
-        LOGGER.info("Creative Blueprint {} for Minecraft {} on {}", VERSION, MINECRAFT, LoaderAccess.INSTANCE.name());
+        LOGGER.info("Fast Creative Copy Paste {} for Minecraft {} on {}", VERSION, MINECRAFT, LoaderAccess.INSTANCE.name());
     }
 }

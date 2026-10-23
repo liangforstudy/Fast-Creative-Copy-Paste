@@ -1,6 +1,6 @@
 # See https://stonecutter.kikugie.dev/wiki/config/properties#centralized-properties
 mod.id = "creativeblueprint"
-mod.name = "Creative Blueprint"
+mod.name = "Fast Creative Copy Paste"
 mod.group = "io.github.liangforstudy"
 mod.version = "0.1.0"
 

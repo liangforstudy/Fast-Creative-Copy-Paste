@@ -1,4 +1,4 @@
-# Creative Blueprint
+# Fast Creative Copy Paste
 
 A client-side mod for fast, Factorio-style copy and paste in creative mode: Ctrl+drag to copy,
 then stamp the copy as a blueprint. See [PLAN.md](PLAN.md) for the design.

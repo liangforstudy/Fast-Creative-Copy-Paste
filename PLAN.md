@@ -1,4 +1,4 @@
-# Creative Blueprint: plan
+# Fast Creative Copy Paste: plan
 
 A client-side mod for fast, Factorio-style copy and paste in creative mode.
 
@@ -83,4 +83,4 @@ Mojang mappings everywhere. Built with Stonecutter 0.9 from the official multi-l
 ## Open questions (for later)
 
 - Tool vs bare hands: currently anything in hand, with Ctrl as the switch.
-- Mod name and id: `creativeblueprint` is a placeholder.
+- Mod id: `creativeblueprint` is a leftover from the first working name; changing it later means renaming the package and resource folders too.
