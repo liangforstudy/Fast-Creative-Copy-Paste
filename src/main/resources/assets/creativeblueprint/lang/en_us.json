@@ -1,5 +1,6 @@
 {
-  "creativeblueprint.selection.dragging": "Selecting...",
-  "creativeblueprint.selection.released": "Selection released after %s ticks",
-  "creativeblueprint.selection.cancelled": "Selection cancelled"
+  "creativeblueprint.selection.size": "%s × %s × %s = %s blocks",
+  "creativeblueprint.selection.selected": "Selected %s × %s × %s = %s blocks",
+  "creativeblueprint.selection.cancelled": "Selection cancelled",
+  "creativeblueprint.selection.cleared": "Selection cleared"
 }

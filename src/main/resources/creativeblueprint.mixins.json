@@ -3,7 +3,9 @@
   "package": "io.github.liangforstudy.creativeblueprint.mixin",
   "compatibilityLevel": "${java}",
   "client": [
-    "MinecraftMixin"
+    "DebugRendererMixin",
+    "MinecraftMixin",
+    "MouseHandlerMixin"
   ],
   "injectors": {
     "defaultRequire": 1
