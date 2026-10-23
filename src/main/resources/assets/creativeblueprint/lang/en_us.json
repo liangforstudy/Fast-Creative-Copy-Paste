@@ -18,7 +18,7 @@
   "creativeblueprint.settings.deconstruct_item": "Deconstruction tool: drag to clear",
   "creativeblueprint.settings.item_hint": "Item ids. Leave empty to turn off.",
   "creativeblueprint.settings.key_binds": "Key Binds...",
-  "creativeblueprint.selection.size": "%s × %s × %s = %s blocks",
+  "creativeblueprint.selection.size": "Copy %s × %s × %s = %s blocks",
   "creativeblueprint.selection.clear_size": "Clear %s × %s × %s = %s blocks",
   "creativeblueprint.clear.done": "Cleared %s × %s × %s (%s commands)",
   "creativeblueprint.clear.nothing": "Already empty: nothing to clear",
