@@ -1,0 +1,21 @@
+license = "MIT"
+
+modLoader = "javafml"
+loaderVersion = "[47,)"
+
+[[mods]]
+modId = "${id}"
+displayName = "${name}"
+version = "${version}"
+authors = "liangforstudy"
+description = "Ctrl+drag to copy blocks in creative, then stamp them as blueprints."
+logoFile = "assets/creativeblueprint/icon.png"
+# Client only: servers don't need it, and it doesn't need servers to have it
+displayTest = "IGNORE_ALL_VERSION"
+
+[[dependencies.${id}]]
+modId = "minecraft"
+mandatory = true
+versionRange = "${minecraft}"
+ordering = "NONE"
+side = "CLIENT"

@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "id": "${id}",
+  "version": "${version}",
+  "name": "${name}",
+  "description": "Ctrl+drag to copy blocks in creative, then stamp them as blueprints.",
+  "authors": ["liangforstudy"],
+  "license": "MIT",
+  "icon": "assets/creativeblueprint/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "client": ["io.github.liangforstudy.creativeblueprint.loader.CreativeBlueprintFabric"]
+  },
+  "mixins": ["creativeblueprint.mixins.json"],
+  "depends": {
+    "fabricloader": ">=${loader}",
+    "minecraft": "${minecraft}",
+    "fabric-api-base": "*"
+  }
+}
