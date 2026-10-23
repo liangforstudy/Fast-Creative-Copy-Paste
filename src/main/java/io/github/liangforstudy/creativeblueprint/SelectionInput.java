@@ -108,7 +108,7 @@ public final class SelectionInput {
     /** From the end of {@code Minecraft.tick}. */
     public static void tick(Minecraft mc) {
         if (swallowUse && !mc.options.keyUse.isDown()) swallowUse = false;
-        if (swallowAttack && !mc.options.keyAttack.isDown()) swallowAttack = false;
+        if (swallowAttack && !Compat.isAttackDown(mc)) swallowAttack = false;
         if (mc.player == null) {
             dragging = false;
             corner1 = corner2 = null;
@@ -121,7 +121,7 @@ public final class SelectionInput {
         }
         updateCorner2(mc);
         // Mouse first: letting go of both in the same tick keeps the selection
-        if (!mc.options.keyAttack.isDown()) {
+        if (!Compat.isAttackDown(mc)) {
             dragging = false;
             showSize(mc, "creativeblueprint.selection.selected");
         } else if (!Compat.isCtrlDown(mc)) {
@@ -137,6 +137,13 @@ public final class SelectionInput {
         Vec3 end = eye.add(player.getViewVector(1.0F).scale(reach));
         BlockHitResult hit = player.level().clip(new ClipContext(eye, end, ClipContext.Block.OUTLINE, ClipContext.Fluid.NONE, player));
         return hit.getType() == HitResult.Type.BLOCK ? hit.getBlockPos() : null;
+    }
+
+    /** One line of state for the dev client's test hook. */
+    static String describe() {
+        if (corner1 == null) return "no selection";
+        return (dragging ? "dragging" : "selected") + " corner1=" + corner1.toShortString() + " corner2=" + corner2.toShortString()
+            + (scrolledDistance >= 0 ? " scrolledDistance=" + scrolledDistance : "");
     }
 
     private static void showSize(Minecraft mc, String key) {

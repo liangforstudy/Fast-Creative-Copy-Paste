@@ -3,6 +3,7 @@
   "package": "io.github.liangforstudy.creativeblueprint.mixin",
   "compatibilityLevel": "${java}",
   "client": [
+    "ClientPacketListenerMixin",
     "DebugRendererMixin",
     "MinecraftMixin",
     "MouseHandlerMixin"

@@ -19,6 +19,7 @@ public final class Compat {
 
     /** Either Ctrl key, read straight from the keyboard so a key mapping on Ctrl (sprint) doesn't hide it. */
     public static boolean isCtrlDown(Minecraft mc) {
+        if (DevTools.ctrlDown) return true;
         //? if >=26.3 {
         return InputConstants.isKeyDown(InputConstants.KEY_LCONTROL) || InputConstants.isKeyDown(InputConstants.KEY_RCONTROL);
         //?} elif >=1.21.11 {
@@ -28,6 +29,11 @@ public final class Compat {
         /*long window = mc.getWindow().getWindow();
         return InputConstants.isKeyDown(window, InputConstants.KEY_LCONTROL) || InputConstants.isKeyDown(window, InputConstants.KEY_RCONTROL);
         *///?}
+    }
+
+    /** The attack key (left mouse by default), or the dev client's virtual one. */
+    public static boolean isAttackDown(Minecraft mc) {
+        return mc.options.keyAttack.isDown() || DevTools.attackDown;
     }
 
     /** Text above the hotbar. */

@@ -32,6 +32,8 @@ dependencies {
     // All of Fabric API, like a real install: with only some modules the dev client can
     // behave differently (missing language files, for one)
     modImplementation("net.fabricmc.fabric-api:fabric-api:${property("deps.fabric_api")}")
+    // Dev client only, never shipped: MCPFabric lets Claude drive the game over MCP (see README)
+    findProperty("deps.mcpfabric")?.let { modLocalRuntime("maven.modrinth:mcpfabric:$it") }
 }
 
 loom {
@@ -46,6 +48,7 @@ loom {
         generateRunConfig = true
         runDirectory = rootProject.file("run") // Shared between versions
         jvmArguments.add("-Dmixin.debug.export=true")
+        jvmArguments.add("-Dcreativeblueprint.devtools=true") // #cbtest chat hook (DevTools.java)
     }
 }
 

@@ -20,6 +20,11 @@ repositories {
     strictMaven("https://api.modrinth.com/maven", "Modrinth", "maven.modrinth")
 }
 
+dependencies {
+    // Dev client only, never shipped: MCPFabric lets Claude drive the game over MCP (see README)
+    findProperty("deps.mcpfabric")?.let { runtimeOnly("maven.modrinth:mcpfabric:$it-neoforge") }
+}
+
 neoForge {
     version = property("deps.neo_loader") as String
 
@@ -33,6 +38,7 @@ neoForge {
         register("client") {
             gameDirectory = file("../../run/")
             client()
+            jvmArgument("-Dcreativeblueprint.devtools=true") // #cbtest chat hook (DevTools.java)
         }
     }
 }

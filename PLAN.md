@@ -79,8 +79,8 @@ Mojang mappings everywhere. Built with Stonecutter 0.9 from the official multi-l
 4. **Blueprints:** place, hologram rendering (missing / wrong / done), ignore marks, pick block,
    saving per server.
 5. **Bots:** op detection, throttled `/fill` and `/setblock` queue.
-6. **Schematics:** `.litematic` export.
-7. **Block data:** server query as op, Chest_Tracker lookup, data in paste commands.
+6. **Block data:** server query as op, Chest_Tracker lookup, data in paste commands.
+7. **Schematics:** `.litematic` export.
 
 ## Open questions (for later)
 

@@ -19,6 +19,8 @@ deps.forge = "1.20.1-47.4.28"
 
 
 ["1.21.1"]
+# Dev client only: MCPFabric (Claude drives the game). There is none for 1.20.1.
+deps.mcpfabric = "0.8.0+1.21.1"
 mod.mc_releases = ["1.21", "1.21.1"]
 
 [fabric."1.21.1"]
@@ -31,6 +33,7 @@ deps.neo_loader = "21.1.264"
 
 
 ["1.21.11"]
+deps.mcpfabric = "0.8.0+1.21.11"
 mod.mc_releases = ["1.21.11"]
 
 [fabric."1.21.11"]
@@ -43,6 +46,7 @@ deps.neo_loader = "21.11.48"
 
 
 ["26.2"]
+deps.mcpfabric = "0.8.0+26.2"
 mod.mc_releases = ["26.2"]
 
 [fabric."26.2"]
@@ -55,6 +59,7 @@ deps.neo_loader = "26.2.0.93"
 
 
 ["26.3"]
+deps.mcpfabric = "0.8.0+26.3"
 mod.mc_releases = ["26.3"]
 
 [fabric."26.3"]

@@ -24,6 +24,7 @@ legacyForge {
         register("client") {
             gameDirectory = file("../../run/")
             client()
+            jvmArgument("-Dcreativeblueprint.devtools=true") // #cbtest chat hook (DevTools.java)
         }
     }
 }
